@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartZone Electronics - Kampur, Assam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== TOP BAR ========== -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Kachua Tiniali, Kampur, Assam - 782426</span>
+      <span>+91 98XXX XXXXX | Open: 9AM - 8PM</span>
+    </div>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">
+        <span class="logo-icon">⚡</span>
+        SmartZone
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="#products" class="nav-link">Products</a>
+        <a href="#deals" class="nav-link">Deals</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== MOBILE MENU OVERLAY ========== -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="home">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Best Deals on<br />
+          <span class="text-accent">Electronics & Gadgets</span>
+        </h1>
+        <p class="hero-sub">
+          Phones, Laptops, Earbuds, Smart Watches and more - all genuine, all
+          affordable. Right here in Kampur.
+        </p>
+        <div class="hero-btns">
+          <a href="#products" class="btn btn-primary">Explore Products</a>
+          <a href="#contact" class="btn btn-outline">Get Directions</a>
+        </div>
+        <div class="hero-trust">
+          <span>100% Genuine</span>
+          <span>After-Sales Support</span>
+          <span>EMI Available</span>
+          <span>Free Delivery</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-emoji">🛒</div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="container stats-inner">
+        <div class="stat-item">
+          <strong class="stat-num" data-target="500">0</strong>
+          <span class="stat-label">Products in Stock</span>
+        </div>
+        <div class="stat-item">
+          <strong class="stat-num" data-target="50">0</strong>
+          <span class="stat-label">Top Brands</span>
+        </div>
+        <div class="stat-item">
+          <strong class="stat-num" data-target="2400">0</strong>
+          <span class="stat-label">Happy Customers</span>
+        </div>
+        <div class="stat-item">
+          <strong class="stat-num" data-target="5">0</strong>
+          <span class="stat-label">Years of Trust</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CATEGORIES ========== -->
+  <section class="section" id="categories">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Shop by Category</h2>
+        <p class="section-sub">Find exactly what you're looking for</p>
+      </div>
+
+      <div class="categories-grid">
+        <div class="cat-card reveal" style="--delay:0.05s">
+          <div class="cat-icon">📱</div>
+          <div class="cat-name">Smartphones</div>
+          <div class="cat-count">80+ models</div>
+        </div>
+        <div class="cat-card reveal" style="--delay:0.1s">
+          <div class="cat-icon">💻</div>
+          <div class="cat-name">Laptops</div>
+          <div class="cat-count">40+ models</div>
+        </div>
+        <div class="cat-card reveal" style="--delay:0.15s">
+          <div class="cat-icon">⌚</div>
+          <div class="cat-name">Smart Watches</div>
+          <div class="cat-count">35+ models</div>
+        </div>
+        <div class="cat-card reveal" style="--delay:0.2s">
+          <div class="cat-icon">🎧</div>
+          <div class="cat-name">Earbuds & Audio</div>
+          <div class="cat-count">60+ models</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRODUCTS ========== -->
+  <section class="section bg-light" id="products">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Featured Products</h2>
+        <p class="section-sub">Genuine products at the best prices in Assam</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs reveal">
+        <button class="tab active" data-filter="all">All</button>
+        <button class="tab" data-filter="phones">Phones</button>
+        <button class="tab" data-filter="laptops">Laptops</button>
+        <button class="tab" data-filter="audio">Audio</button>
+        <button class="tab" data-filter="wearables">Wearables</button>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DEAL OF THE DAY ========== -->
+  <section class="deal-section" id="deals">
+    <div class="container deal-inner">
+      <div class="deal-left reveal">
+        <h2 class="deal-title">Today's Flash Sale</h2>
+        <p class="deal-sub">
+          Grab these handpicked deals before they're gone. Up to
+          <strong>40% OFF</strong> on selected gadgets.
+        </p>
+        <div class="countdown" id="countdown">
+          <div class="cd-unit">
+            <span class="cd-num" id="cdH">00</span>
+            <span class="cd-lbl">Hours</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cdM">00</span>
+            <span class="cd-lbl">Mins</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cdS">00</span>
+            <span class="cd-lbl">Secs</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-white">Visit Store</a>
+      </div>
+
+      <div class="deal-products reveal">
+        <div class="deal-prod-card">
+          <div class="deal-prod-img">📱</div>
+          <div class="deal-prod-info">
+            <div class="deal-prod-name">iPhone 15 - 128GB</div>
+            <div class="deal-prod-prices">
+              <span class="deal-new">Rs. 69,999</span>
+              <span class="deal-old">Rs. 79,999</span>
+            </div>
+          </div>
+        </div>
+        <div class="deal-prod-card">
+          <div class="deal-prod-img">💻</div>
+          <div class="deal-prod-info">
+            <div class="deal-prod-name">ASUS VivoBook 15</div>
+            <div class="deal-prod-prices">
+              <span class="deal-new">Rs. 39,990</span>
+              <span class="deal-old">Rs. 52,990</span>
+            </div>
+          </div>
+        </div>
+        <div class="deal-prod-card">
+          <div class="deal-prod-img">🎧</div>
+          <div class="deal-prod-info">
+            <div class="deal-prod-name">Boat Rockerz 550</div>
+            <div class="deal-prod-prices">
+              <span class="deal-new">Rs. 1,299</span>
+              <span class="deal-old">Rs. 3,999</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES SECTION ========== -->
+  <section class="section bg-light" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-sub">More than just a shop - we're your tech partner</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal" style="--delay:0.05s">
+          <div class="service-icon">🔧</div>
+          <h3>Device Repair</h3>
+          <p>Screen replacement, battery issues, software problems - we fix it all</p>
+        </div>
+        <div class="service-card reveal" style="--delay:0.1s">
+          <div class="service-icon">📱</div>
+          <h3>Phone Setup</h3>
+          <p>Data transfer, app installation, and full device setup for free</p>
+        </div>
+        <div class="service-card reveal" style="--delay:0.15s">
+          <div class="service-icon">💳</div>
+          <h3>EMI & Finance</h3>
+          <p>Easy EMI options with minimal documentation</p>
+        </div>
+        <div class="service-card reveal" style="--delay:0.2s">
+          <div class="service-icon">🔄</div>
+          <h3>Exchange</h3>
+          <p>Trade-in your old device and get instant discount on new purchase</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Why Choose SmartZone?</h2>
+        <p class="section-sub">
+          We're your trusted tech partner right here in Kampur
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal" style="--delay:0.05s">
+          <div class="why-icon">✓</div>
+          <h3 class="why-title">100% Genuine Products</h3>
+          <p class="why-text">
+            Every product comes directly from authorized distributors with
+            original warranty cards and sealed packaging.
+          </p>
+        </div>
+        <div class="why-card reveal" style="--delay:0.1s">
+          <div class="why-icon">Rs.</div>
+          <h3 class="why-title">Best Price Guarantee</h3>
+          <p class="why-text">
+            Found it cheaper? Show us and we'll match the price. Honest and
+            transparent pricing, always.
+          </p>
+        </div>
+        <div class="why-card reveal" style="--delay:0.15s">
+          <div class="why-icon">🔧</div>
+          <h3 class="why-title">After-Sales Support</h3>
+          <p class="why-text">
+            We help with setup, warranty claims, and repairs even after your
+            purchase. We're always here for you.
+          </p>
+        </div>
+        <div class="why-card reveal" style="--delay:0.2s">
+          <div class="why-icon">💳</div>
+          <h3 class="why-title">Easy EMI Options</h3>
+          <p class="why-text">
+            Flexible monthly installment plans on select products. Own the
+            latest gadget without breaking the bank.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="section bg-light" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-sub">Real reviews from real people in Assam</p>
+      </div>
+
+      <div class="testi-grid">
+        <div class="testi-card reveal" style="--delay:0.05s">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">
+            "Got my new Samsung phone here - the staff was very helpful and the
+            price was better than anything I found online. Highly recommended!"
+          </p>
+          <div class="testi-author">
+            <div class="testi-name">Rahul Bora</div>
+            <div class="testi-loc">Kampur, Assam</div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal" style="--delay:0.1s">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">
+            "Bought earbuds and a smartwatch. They even helped me set it up and
+            connect to my phone. Excellent service, will come again!"
+          </p>
+          <div class="testi-author">
+            <div class="testi-name">Priyanka Das</div>
+            <div class="testi-loc">Nagaon, Assam</div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal" style="--delay:0.15s">
+          <div class="stars">★★★★☆</div>
+          <p class="testi-text">
+            "Finally a proper gadget shop near us! No need to travel to
+            Guwahati anymore. All genuine products and very friendly staff."
+          </p>
+          <div class="testi-author">
+            <div class="testi-name">Ankur Saikia</div>
+            <div class="testi-loc">Hojai, Assam</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Visit Our Store</h2>
+        <p class="section-sub">We'd love to help you pick the perfect gadget</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Info -->
+        <div class="contact-info reveal">
+          <div class="info-card">
+            <div class="info-icon">📍</div>
+            <div>
+              <div class="info-label">Our Address</div>
+              <div class="info-val">
+                Kachua Tiniali, Kampur<br />Nagaon District, Assam - 782426
+              </div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📞</div>
+            <div>
+              <div class="info-label">Call / WhatsApp</div>
+              <div class="info-val">+91 98XXX XXXXX</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">⏰</div>
+            <div>
+              <div class="info-label">Store Timings</div>
+              <div class="info-val">
+                Mon - Sat: 9:00 AM - 8:00 PM<br />Sunday: 10:00 AM - 6:00 PM
+              </div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📧</div>
+            <div>
+              <div class="info-label">Email</div>
+              <div class="info-val">hello@smartzone.store</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enquiry Form -->
+        <div class="enquiry-form reveal" style="--delay:0.15s">
+          <h3 class="form-heading">Send an Enquiry</h3>
+          <p class="form-sub">Fill in your details and we'll call you back!</p>
+
+          <form id="enquiryForm">
+            <div class="form-group">
+              <label for="fname">Your Name *</label>
+              <input type="text" id="fname" placeholder="e.g. Rahul Bora" required />
+            </div>
+            <div class="form-group">
+              <label for="fphone">Phone Number *</label>
+              <input type="tel" id="fphone" placeholder="+91 98XXX XXXXX" required />
+            </div>
+            <div class="form-group">
+              <label for="finterest">Interested In</label>
+              <select id="finterest">
+                <option value="">Select a category</option>
+                <option>Smartphones</option>
+                <option>Laptops & PCs</option>
+                <option>Smart Watches</option>
+                <option>Earbuds & Headphones</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fmsg">Message</label>
+              <textarea id="fmsg" rows="4" placeholder="Tell us what you need..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              Send Enquiry
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#home" class="footer-logo">
+          <span>⚡</span> SmartZone
+        </a>
+        <p class="footer-tagline">
+          Your trusted neighbourhood electronics store in Kampur, Assam.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Products</a>
+        <a href="#deals">Deals</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 SmartZone Electronics - Kachua Tiniali, Kampur, Assam 782426</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <span class="toast-msg" id="toastMsg">Done!</span>
+  </div>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
