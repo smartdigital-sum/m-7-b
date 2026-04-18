@@ -31,8 +31,13 @@
         <a href="#categories" class="nav-link">Categories</a>
         <a href="#products" class="nav-link">Products</a>
         <a href="#deals" class="nav-link">Deals</a>
+        <a href="#faq" class="nav-link">FAQ</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
+
+      <div class="nav-actions">
+        <button id="darkModeBtn" class="dark-mode-btn" title="Toggle Dark Mode" aria-label="Toggle dark mode">🌙</button>
+      </div>
 
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span>
@@ -138,13 +143,24 @@
         <p class="section-sub">Genuine products at the best prices in Assam</p>
       </div>
 
-      <!-- Filter Tabs -->
-      <div class="filter-tabs reveal">
-        <button class="tab active" data-filter="all">All</button>
-        <button class="tab" data-filter="phones">Phones</button>
-        <button class="tab" data-filter="laptops">Laptops</button>
-        <button class="tab" data-filter="audio">Audio</button>
-        <button class="tab" data-filter="wearables">Wearables</button>
+      <!-- Filter & Sort Bar -->
+      <div class="filter-sort-bar reveal">
+        <div class="filter-tabs">
+          <button class="tab active" data-filter="all">All</button>
+          <button class="tab" data-filter="phones">Phones</button>
+          <button class="tab" data-filter="laptops">Laptops</button>
+          <button class="tab" data-filter="audio">Audio</button>
+          <button class="tab" data-filter="wearables">Wearables</button>
+        </div>
+        <div class="sort-wrapper">
+          <label for="sortSelect">Sort by:</label>
+          <select id="sortSelect" class="sort-select">
+            <option value="default">Default</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="name">Name: A-Z</option>
+          </select>
+        </div>
       </div>
 
       <div class="products-grid" id="productsGrid">
@@ -344,6 +360,73 @@
     </div>
   </section>
 
+  <!-- ========== FAQ SECTION ========== -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-sub">Got questions? We've got answers!</p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Do you offer home delivery?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes! We offer free delivery within Kampur and nearby areas. For other locations in Assam, nominal delivery charges apply based on distance.</div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What warranty do products come with?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">All products come with official manufacturer warranty. We also provide warranty cards and help with any warranty claims at no extra cost.</div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Can I get EMI on purchases?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Absolutely! We offer easy EMI options on select products with minimal documentation. Choose from 3, 6, 9, 12, 18, or 24 month plans.</div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Do you accept old device exchange?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes! Bring your old smartphone, laptop, or tablet and get an instant discount on your new purchase. We offer competitive exchange rates.</div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What are your store timings?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Mon – Sat: 9:00 AM – 8:00 PM. Sunday: 10:00 AM – 6:00 PM. Closed only on major holidays.</div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Do you provide repair services?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes! We offer screen replacement, battery replacement, and software repair services. Most repairs are completed within 24–48 hours.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== CONTACT ========== -->
   <section class="section" id="contact">
     <div class="container">
@@ -386,6 +469,19 @@
               <div class="info-label">Email</div>
               <div class="info-val">hello@smartzone.store</div>
             </div>
+          </div>
+          <!-- Google Maps Embed -->
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.8!2d92.58!3d26.08!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375b74af03cdad2f%3A0xe4c88e6c7e4d9f4a!2sKampur%2C+Assam!5e0!3m2!1sen!2sin!4v1700000000000"
+              width="100%"
+              height="200"
+              style="border:0;border-radius:8px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="SmartZone Store Location"
+            ></iframe>
           </div>
         </div>
 
@@ -439,26 +535,82 @@
         </p>
       </div>
 
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#categories">Categories</a>
-        <a href="#products">Products</a>
-        <a href="#deals">Deals</a>
-        <a href="#contact">Contact</a>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#deals">Deals</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Device Repair</a></li>
+          <li><a href="#services">EMI & Finance</a></li>
+          <li><a href="#services">Exchange</a></li>
+          <li><a href="#services">Phone Setup</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social-col">
+        <h4>Follow Us</h4>
+        <div class="footer-social-links">
+          <a href="#" class="footer-social-btn" title="Facebook">📘 Facebook</a>
+          <a href="#" class="footer-social-btn" title="Instagram">📸 Instagram</a>
+          <a href="https://wa.me/919800000000" class="footer-social-btn" title="WhatsApp" target="_blank">💬 WhatsApp</a>
+          <a href="#" class="footer-social-btn" title="YouTube">▶️ YouTube</a>
+        </div>
       </div>
     </div>
 
     <div class="footer-bottom">
       <div class="container">
-        <p>&copy; 2025 SmartZone Electronics - Kachua Tiniali, Kampur, Assam 782426</p>
+        <p>&copy; 2025 SmartZone Electronics — Kachua Tiniali, Kampur, Assam 782426</p>
       </div>
     </div>
   </footer>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeQuickView()"></div>
+  <div class="quick-view-modal" id="quickViewModal">
+    <button class="modal-close" onclick="closeQuickView()">×</button>
+    <div class="modal-body">
+      <div class="modal-img" id="modalImg">📱</div>
+      <div class="modal-info">
+        <div class="modal-brand" id="modalBrand">Samsung</div>
+        <div class="modal-name" id="modalName">Galaxy S25 Ultra</div>
+        <div class="modal-spec" id="modalSpec">12GB RAM • 256GB</div>
+        <div class="modal-price-row">
+          <span class="modal-price" id="modalPrice">Rs. 1,24,999</span>
+          <span class="modal-old-price" id="modalOldPrice"></span>
+        </div>
+        <div id="modalStock" class="modal-stock"></div>
+        <div class="modal-actions">
+          <button class="btn btn-primary" onclick="enquireProduct()">Enquire Now</button>
+          <button class="btn btn-outline" onclick="closeQuickView()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Toast Notification -->
   <div class="toast" id="toast">
     <span class="toast-msg" id="toastMsg">Done!</span>
   </div>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919800000000?text=Hi%2C%20I%27m%20interested%20in%20your%20products%20at%20SmartZone%20Electronics!"
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     title="Chat on WhatsApp">
+    💬
+  </a>
 
   <!-- Back to top button -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>

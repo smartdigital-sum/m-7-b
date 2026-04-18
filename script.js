@@ -148,10 +148,84 @@ const products = [
 ];
 
 let currentFilter = 'all';
+let currentSort = 'default';
 
 // Format price to Indian Rupees
 function formatPrice(price) {
   return 'Rs. ' + price.toLocaleString('en-IN');
+}
+
+/* ── DARK MODE ────────────────────────────────────────────── */
+(function initDarkMode() {
+  const saved = localStorage.getItem('sz-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', saved);
+  window.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('darkModeBtn');
+    if (!btn) return;
+    btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('sz-theme', next);
+      btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  });
+})();
+
+/* ── FAQ TOGGLE ───────────────────────────────────────────── */
+function toggleFaq(questionEl) {
+  const answer = questionEl.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+
+  // Close all
+  document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+
+  if (!isOpen) {
+    answer.classList.add('open');
+    questionEl.classList.add('active');
+  }
+}
+
+/* ── QUICK VIEW ───────────────────────────────────────────── */
+let currentQuickViewProduct = null;
+
+function openQuickView(productIndex) {
+  const p = products[productIndex];
+  if (!p) return;
+  currentQuickViewProduct = p;
+
+  document.getElementById('modalImg').textContent = p.emoji;
+  document.getElementById('modalBrand').textContent = p.brand;
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalSpec').textContent = p.spec;
+  document.getElementById('modalPrice').textContent = formatPrice(p.price);
+
+  const oldEl = document.getElementById('modalOldPrice');
+  oldEl.textContent = p.old ? formatPrice(p.old) : '';
+
+  const stockLabels = { 'in-stock': '✓ In Stock', 'low-stock': '⚠ Low Stock', 'out-of-stock': '✗ Out of Stock' };
+  const stockColors = { 'in-stock': '#2e7d32', 'low-stock': '#f57c00', 'out-of-stock': '#c62828' };
+  const stockEl = document.getElementById('modalStock');
+  stockEl.textContent = stockLabels[p.stock];
+  stockEl.style.color = stockColors[p.stock];
+
+  document.getElementById('modalOverlay').classList.add('show');
+  document.getElementById('quickViewModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeQuickView() {
+  document.getElementById('modalOverlay').classList.remove('show');
+  document.getElementById('quickViewModal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function enquireProduct() {
+  const name = currentQuickViewProduct ? currentQuickViewProduct.name : 'this product';
+  closeQuickView();
+  showToast(`"${name}" — Visit our store or WhatsApp us!`);
 }
 
 /* ── RENDER PRODUCTS ──────────────────────────────────────── */
@@ -159,20 +233,28 @@ function renderProducts(filter) {
   const grid = document.getElementById('productsGrid');
   let list = filter === 'all' ? [...products] : products.filter(p => p.cat === filter);
 
+  // Apply sort
+  if (currentSort === 'price-low') list.sort((a, b) => a.price - b.price);
+  else if (currentSort === 'price-high') list.sort((a, b) => b.price - a.price);
+  else if (currentSort === 'name') list.sort((a, b) => a.name.localeCompare(b.name));
+
   const badgeClass = { new: 'badge-new', hot: 'badge-hot', sale: 'badge-sale' };
-  const badgeLabel = { new: 'New', hot: 'Hot', sale: 'Sale' };
+  const badgeLabel = { new: 'New Arrival', hot: 'Hot', sale: 'Sale' };
   const stockLabel = { 'in-stock': 'In Stock', 'low-stock': 'Low Stock', 'out-of-stock': 'Out of Stock' };
   const stockClass = { 'in-stock': 'in-stock', 'low-stock': 'low-stock', 'out-of-stock': 'out-of-stock' };
 
+  // Get original product indices for quick view
+  const originalIndices = list.map(p => products.indexOf(p));
+
   grid.innerHTML = list.map((p, i) => `
     <div class="prod-card reveal" style="--delay:${(i % 4) * 0.07}s">
-      <div class="prod-img">
+      <div class="prod-img" onclick="openQuickView(${originalIndices[i]})" style="cursor:pointer" title="Quick View">
         <span class="prod-badge ${badgeClass[p.badge]}">${badgeLabel[p.badge]}</span>
         ${p.emoji}
       </div>
       <div class="prod-body">
         <div class="prod-brand">${p.brand}</div>
-        <div class="prod-name">${p.name}</div>
+        <div class="prod-name" onclick="openQuickView(${originalIndices[i]})" style="cursor:pointer">${p.name}</div>
         <div class="prod-spec">${p.spec}</div>
         <span class="stock-badge ${stockClass[p.stock]}">${stockLabel[p.stock]}</span>
         <div class="prod-footer">
@@ -180,7 +262,7 @@ function renderProducts(filter) {
             <span class="prod-price">${formatPrice(p.price)}</span>
             ${p.old ? `<span class="prod-old">${formatPrice(p.old)}</span>` : ''}
           </div>
-          <button class="prod-btn" onclick="showEnquiry('${p.name.replace(/'/g, "\\'")}')">Enquire</button>
+          <button class="prod-btn" onclick="openQuickView(${originalIndices[i]})">Quick View</button>
         </div>
       </div>
     </div>
@@ -194,7 +276,7 @@ function showEnquiry(name) {
   showToast(`"${name}" - Visit our store for pricing!`);
 }
 
-/* ── FILTER TABS ──────────────────────────────────────────── */
+/* ── FILTER TABS & SORT ───────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   renderProducts('all');
 
@@ -207,6 +289,15 @@ document.addEventListener('DOMContentLoaded', () => {
       renderProducts(currentFilter);
     });
   });
+
+  // Sort dropdown
+  const sortSelect = document.getElementById('sortSelect');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', () => {
+      currentSort = sortSelect.value;
+      renderProducts(currentFilter);
+    });
+  }
 });
 
 /* ── SCROLL REVEAL ────────────────────────────────────────── */
